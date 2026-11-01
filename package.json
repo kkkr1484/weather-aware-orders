@@ -1,0 +1,16 @@
+{
+  "name": "weather-aware-orders",
+  "version": "1.0.0",
+  "description": "Checks the weather for every order's city in parallel, flags delivery delays and writes weather-aware apologies.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dry-run": "node index.js --dry-run",
+    "test": "node --test",
+    "reset": "node -e \"require('fs').copyFileSync('orders.original.json','orders.json')\""
+  },
+  "engines": {
+    "node": ">=20.12"
+  },
+  "license": "MIT"
+}

@@ -2,18 +2,32 @@
 
 A small Node.js script that checks the current weather for every order's city, flags orders that will probably be late because of the weather, and writes a friendly apology for each one.
 
+A real run (1 Nov 2026, 18:39 UTC):
+
 ```
 $ node index.js
 
 Checking weather for 4 orders (4 cities), all requests in parallel...
 
-  ✓ 1001  New York        Clouds (broken clouds, 9°C) → no delay
-  ! 1003  London          Rain (light rain, 11°C) → Delayed
-         "Hi Charlie, your order to London is delayed due to light rain. We appreciate your patience!"
+  ✓ 1001  New York        Clouds (few clouds, 16°C) → no delay
+  ✓ 1002  Mumbai          Clouds (overcast clouds, 29°C) → no delay
+  ✓ 1003  London          Clouds (overcast clouds, 10°C) → no delay
   ✗ 1004  InvalidCity123  City not found: "InvalidCity123" → logged to logs/errors.log, skipping
-  ...
-  4 API calls fired together: finished in 212 ms (slowest single call: 209 ms)
+
+  4 API calls fired together: finished in 1159 ms (slowest single call: 1159 ms)
+  0 delayed, 3 on time, 1 failed
+
+  orders.json updated
 ```
+
+It was dry in all three cities at the time, so no order was delayed in this run. When a city has rain, the line looks like this instead (this example comes from the tests, which use a fake weather API):
+
+```
+  ! 1001  New York        Rain (heavy intensity rain, 12°C) → Delayed
+         "Hi Alice, your order to New York is delayed due to heavy rain. We appreciate your patience!"
+```
+
+The committed `orders.json` is the output of the real run above.
 
 ## Run it
 

@@ -3,19 +3,22 @@
     "order_id": "1001",
     "customer": "Alice Smith",
     "city": "New York",
-    "status": "Pending"
+    "status": "Pending",
+    "weather": "Clouds"
   },
   {
     "order_id": "1002",
     "customer": "Bob Jones",
     "city": "Mumbai",
-    "status": "Pending"
+    "status": "Pending",
+    "weather": "Clouds"
   },
   {
     "order_id": "1003",
     "customer": "Charlie Green",
     "city": "London",
-    "status": "Pending"
+    "status": "Pending",
+    "weather": "Clouds"
   },
   {
     "order_id": "1004",
